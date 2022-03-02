@@ -18,13 +18,17 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     var leageID = String()
     var upComingEvent = [UpComingEvent]()
     var latestEvent = [Latestevent]()
+    var teams = [Team]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nib = UINib(nibName: "UpcomingCollectionViewCell", bundle: nil)
         self.UoComingCollectionView.register(nib, forCellWithReuseIdentifier: "upcoming")
-        
+        let nib1 = UINib(nibName: "LatestCollectionViewCell", bundle: nil)
+        self.EventReasultCollection.register(nib1, forCellWithReuseIdentifier: "ResultsEvent")
+        let nib2 = UINib(nibName: "UpcomingCollectionViewCell", bundle: nil)
+        self.teamCollictionView.register(nib2, forCellWithReuseIdentifier: "upcoming")
         
         
         SportController.shared.getUpComing(leageName: leageName) {  result in
@@ -51,6 +55,21 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
                            print(error)
                        }
         }
+        SportController.shared.getTeams(leageName: leageName) {  result in
+                       switch result
+                       {
+                       case .success(let teams):
+                        guard let teams = teams else {
+                            return
+                        }
+                           DispatchQueue.main.async {
+                              self.teams=teams
+                               self.teamCollictionView.reloadData()
+                           }
+                       case .failure(let error):
+                           print(error)
+                       }
+        }
         
 
 
@@ -65,7 +84,7 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         case EventReasultCollection:
             return latestEvent.count
         default:
-            return upComingEvent.count
+            return teams.count
         }
        }
        
@@ -80,12 +99,16 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
             cell.image.kf.setImage(with: url)
             return cell
         case EventReasultCollection :
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultsEvent", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultsEvent", for: indexPath) as! LatestCollectionViewCell
+            cell.LastestImage.kf.setImage(with: URL(string:  latestEvent[indexPath.count].strThumb))
+            cell.homeTeam.text = latestEvent[indexPath.row].intHomeScore
+            cell.awayTeam.text = latestEvent[indexPath.row].intAwayScore
             print(latestEvent[indexPath.count].strThumb)
             return cell
             
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamsCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcoming", for: indexPath) as! UpcomingCollectionViewCell
+            cell.image.kf.setImage(with: teams[indexPath.row].strTeamBadge)
                     return cell
             
         }
@@ -96,12 +119,19 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         switch collectionView {
         case UoComingCollectionView:
             
-            return CGSize(width: UIScreen.main.bounds.width/0.9, height: 150)
+            return CGSize(width: UIScreen.main.bounds.width/1.1, height: 160)
         case EventReasultCollection:
-            return CGSize(width: UIScreen.main.bounds.width/0.9, height: 150)
+            return CGSize(width: UIScreen.main.bounds.width/1.1, height: 160)
         default:
-            return CGSize(width: UIScreen.main.bounds.width/0.9, height: 150)
+            return CGSize(width: UIScreen.main.bounds.width/1.1, height: 160)
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == teamCollictionView{
+            let view = storyboard?.instantiateViewController(identifier: "teamDetail") as! TeamDeitailViewController
+            view.team = teams[indexPath.row]
+            self.present(view, animated: true, completion: nil)}
+        
     }
 
     /*

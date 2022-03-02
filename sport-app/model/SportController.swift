@@ -96,4 +96,28 @@ class SportController  {
         }
             task.resume()
     }
+    func getTeams(leageName:String, complation:@escaping(Result<[Team]?,Error>)->Void){
+        let urlString="https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=\(leageName.replacingOccurrences(of: " ", with: "%20"))"
+        let leagesUrl = URL(string: urlString)
+            guard let url = leagesUrl else {
+                return
+            }
+        print(url)
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { (data, _, erorr) in
+                guard let data = data else{
+                    return
+            }
+                do{
+                    let result = try JSONDecoder().decode([String: [Team]].self, from: data)
+                    
+                    complation(.success(result["teams"]))
+                    
+                }catch{
+                    print("Teams erorr")
+                }
+            
+        }
+            task.resume()
+    }
 }
