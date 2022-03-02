@@ -65,8 +65,11 @@ class SportsCollectionViewController: UICollectionViewController,UICollectionVie
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SportsCollectionViewCell
+       cell.sportName.text = sports[indexPath.row].strSport
+        
+        print("lkkj")
+        
         cell.sportImage.kf.setImage(with: URL(string:sports[indexPath.row].strSportThumb))
-        cell.sportName.text = sports[indexPath.row].strSport
     
         // Configure the cell
     

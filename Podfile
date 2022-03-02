@@ -7,4 +7,5 @@ target 'sport-app' do
 pod 'Kingfisher'
   # Pods for sport-app
 pod 'Alamofire'
+pod 'SDWebImage'
 end

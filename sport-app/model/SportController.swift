@@ -35,6 +35,7 @@ class SportController  {
             guard let url = leagesUrl else {
                 return
             }
+       // print(url)
             let request = URLRequest(url: url)
             let task = URLSession.shared.dataTask(with: request) { (data, _, erorr) in
                 guard let data = data else{
@@ -56,6 +57,7 @@ class SportController  {
             guard let url = leagesUrl else {
                 return
             }
+        print(url)
             let request = URLRequest(url: url)
             let task = URLSession.shared.dataTask(with: request) { (data, _, erorr) in
                 guard let data = data else{
@@ -66,6 +68,29 @@ class SportController  {
                     complation(.success(result.event))
                 }catch{
                     print("Up Coming erorr")
+                }
+            
+        }
+            task.resume()
+    }
+    func getLastest(leageid:String, complation:@escaping(Result<[Latestevent],Error>)->Void){
+        let urlString="https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=\(leageid)"
+        let leagesUrl = URL(string: urlString)
+            guard let url = leagesUrl else {
+                return
+            }
+        print(url)
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { (data, _, erorr) in
+                guard let data = data else{
+                    return
+            }
+                do{
+                    let result = try JSONDecoder().decode(LatestEvents.self, from: data)
+                    complation(.success(result.events))
+                    
+                }catch{
+                    print("latest erorr")
                 }
             
         }

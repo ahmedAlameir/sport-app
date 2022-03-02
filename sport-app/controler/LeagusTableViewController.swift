@@ -52,7 +52,7 @@ class LeagusTableViewController: UITableViewController {
         cell.leageName.text=leages[indexPath.row].strLeague
        // print(leages[indexPath.row].strLeague)
         cell.leagesBadge.kf.setImage(with: URL(string: leages[indexPath.row].strBadge))
-       
+     //  print(leages[indexPath.row].strBadge)
 
         // Configure the cell...
 
@@ -61,6 +61,7 @@ class LeagusTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view = storyboard?.instantiateViewController(identifier: "LeageDetail") as! LeagesDetailsViewController
         view.leageName = leages[indexPath.row].strLeague
+        view.leageID = leages[indexPath.row].idLeague
         self.present(view, animated: true, completion: nil)
     }
     

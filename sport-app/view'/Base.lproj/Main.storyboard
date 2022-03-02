@@ -165,6 +165,10 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Xp-H4-lOx" id="6cx-8Y-AF1"/>
+                                    <outlet property="delegate" destination="8Xp-H4-lOx" id="Z6C-Sp-tkw"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upcoming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upJ-dH-XM1">
                                 <rect key="frame" x="0.0" y="44" width="94" height="20.5"/>
@@ -186,42 +190,18 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GuH-fh-Jlt">
                                 <rect key="frame" x="0.0" y="84" width="414" height="172"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbO-z2-4Mo">
-                                    <size key="itemSize" width="412" height="150"/>
+                                    <size key="itemSize" width="372" height="137"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upComingEvent" id="ydj-BC-Jdf" customClass="UpComingCollectionViewCell" customModule="sport_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="11" width="412" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nQ9-ik-Dz7">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nM4-qG-m8S">
-                                                    <rect key="frame" x="0.0" y="0.0" width="412" height="150"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="GyY-v6-MMB"/>
-                                                        <constraint firstAttribute="width" constant="412" id="WVy-ov-21y"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="nM4-qG-m8S" secondAttribute="trailing" id="9SC-dV-glh"/>
-                                                <constraint firstItem="nM4-qG-m8S" firstAttribute="top" secondItem="nQ9-ik-Dz7" secondAttribute="top" id="UXY-el-0LR"/>
-                                                <constraint firstItem="nM4-qG-m8S" firstAttribute="leading" secondItem="nQ9-ik-Dz7" secondAttribute="leading" id="dK3-ih-uhy"/>
-                                                <constraint firstAttribute="bottom" secondItem="nM4-qG-m8S" secondAttribute="bottom" id="pdC-2X-pKj"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="412" height="150"/>
-                                        <connections>
-                                            <outlet property="upComingImige" destination="nM4-qG-m8S" id="52e-Ov-lr6"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Xp-H4-lOx" id="ApD-4T-FX3"/>
+                                    <outlet property="delegate" destination="8Xp-H4-lOx" id="82B-P3-aLX"/>
+                                </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c61-cc-V8p">
                                 <rect key="frame" x="0.0" y="568" width="414" height="244"/>
@@ -245,6 +225,10 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Xp-H4-lOx" id="fE5-21-xHT"/>
+                                    <outlet property="delegate" destination="8Xp-H4-lOx" id="H0s-GE-LAZ"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -272,7 +256,7 @@
                     <navigationItem key="navigationItem" id="Wrc-yg-A2L"/>
                     <connections>
                         <outlet property="EventReasultCollection" destination="ZjZ-7o-jYA" id="S7B-72-uD7"/>
-                        <outlet property="UoComingCollectionView" destination="c61-cc-V8p" id="KdQ-6S-3Ih"/>
+                        <outlet property="UoComingCollectionView" destination="GuH-fh-Jlt" id="en1-4i-DfG"/>
                         <outlet property="teamCollictionView" destination="c61-cc-V8p" id="xZc-x7-xif"/>
                     </connections>
                 </viewController>
