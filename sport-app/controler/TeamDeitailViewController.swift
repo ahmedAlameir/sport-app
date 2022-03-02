@@ -11,8 +11,18 @@ import UIKit
 class TeamDeitailViewController: UIViewController {
     var team = Team()
 
+    @IBOutlet var teamName: UILabel!
+    @IBOutlet var teamBadg: UIImageView!
+    @IBOutlet var teamStadName: UILabel!
+    @IBOutlet var teamStad: UIImageView!
+    @IBOutlet var teamJersey: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        teamName.text = team.strTeam
+        teamBadg.kf.setImage(with: team.strTeamBadge)
+        teamStadName.text = team.strStadium
+        teamStad.kf.setImage(with: team.strStadiumThumb)
+        teamJersey.kf.setImage(with: team.strTeamJersey)
 
         // Do any additional setup after loading the view.
     }
