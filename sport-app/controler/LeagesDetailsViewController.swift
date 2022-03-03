@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-   
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var UoComingCollectionView: UICollectionView!
     @IBOutlet weak var EventReasultCollection: UICollectionView!
@@ -19,6 +19,8 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
     var upComingEvent = [UpComingEvent]()
     var latestEvent = [Latestevent]()
     var teams = [Team]()
+    var youtuypLink = String()
+     var leageImage = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +136,12 @@ class LeagesDetailsViewController: UIViewController ,UICollectionViewDelegate,UI
         
     }
 
+    @IBAction func saveFav(_ sender: Any) {
+        let favorit = FavouritLeagus(context :context)
+        favorit.leagenames = leageName
+        favorit.legueBages = leageImage
+        favorit.youyube = youtuypLink
+    }
     /*
     // MARK: - Navigation
 

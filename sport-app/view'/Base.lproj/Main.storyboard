@@ -100,13 +100,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vas-0g-34L">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vas-0g-34L">
                                             <rect key="frame" x="313" y="11" width="81" height="56"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="81" id="rY9-gS-51Q"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <state key="normal" title="youTube"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="youTube" image="play.rectangle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="youTupe:" destination="h6J-I4-Xde" eventType="touchUpInside" id="Ezc-hL-mvm"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -213,6 +218,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button" image="heart.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="saveFav:" destination="8Xp-H4-lOx" eventType="touchUpInside" id="Sxg-T5-8Bc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -295,13 +303,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XWU-TL-Pln">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favLeage" rowHeight="78" id="cNt-FT-3OD" customClass="FavTableViewCell" customModule="sport_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XWU-TL-Pln" id="n9j-yg-wq7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cNt-FT-3OD" id="DWo-rC-cfA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-Sd-Gmn">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="78"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="97" id="mkv-IX-PmQ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uke-ut-MMy">
+                                            <rect key="frame" x="97" y="11" width="141" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="141" id="Gz2-bc-CJM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-k3-Hgz">
+                                            <rect key="frame" x="313" y="11" width="81" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="PVC-at-Ur7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="youTube" image="play.rectangle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="youTupe:" destination="cNt-FT-3OD" eventType="touchUpInside" id="cXO-Sp-1hF"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JkX-k3-Hgz" firstAttribute="bottom" secondItem="DWo-rC-cfA" secondAttribute="bottomMargin" id="K5V-Jz-7dm"/>
+                                        <constraint firstItem="0Gq-Sd-Gmn" firstAttribute="leading" secondItem="DWo-rC-cfA" secondAttribute="leading" id="Uid-Y2-IYD"/>
+                                        <constraint firstItem="Uke-ut-MMy" firstAttribute="leading" secondItem="0Gq-Sd-Gmn" secondAttribute="trailing" id="YPT-cU-8Rr"/>
+                                        <constraint firstItem="JkX-k3-Hgz" firstAttribute="top" secondItem="DWo-rC-cfA" secondAttribute="topMargin" id="cPq-Up-GQ9"/>
+                                        <constraint firstAttribute="bottom" secondItem="0Gq-Sd-Gmn" secondAttribute="bottom" id="eJN-e8-tPc"/>
+                                        <constraint firstItem="Uke-ut-MMy" firstAttribute="bottom" secondItem="DWo-rC-cfA" secondAttribute="bottomMargin" id="lGV-KT-AFp"/>
+                                        <constraint firstItem="Uke-ut-MMy" firstAttribute="top" secondItem="DWo-rC-cfA" secondAttribute="topMargin" id="lsJ-XL-sfC"/>
+                                        <constraint firstItem="JkX-k3-Hgz" firstAttribute="trailing" secondItem="DWo-rC-cfA" secondAttribute="trailingMargin" id="x8i-Z6-V8w"/>
+                                        <constraint firstItem="0Gq-Sd-Gmn" firstAttribute="top" secondItem="DWo-rC-cfA" secondAttribute="top" id="yvf-WR-r7Y"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leageName" destination="Uke-ut-MMy" id="vka-dC-pQx"/>
+                                    <outlet property="leagesBadge" destination="0Gq-Sd-Gmn" id="c0R-yn-Z71"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -375,5 +428,6 @@
     </scenes>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
     </resources>
 </document>

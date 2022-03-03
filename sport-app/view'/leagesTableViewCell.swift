@@ -11,7 +11,8 @@ import UIKit
 class leagesTableViewCell: UITableViewCell {
     @IBOutlet weak var leagesBadge: UIImageView!
     @IBOutlet weak var leageName: UILabel!
-    
+    var link = String()
+    var leageStr = String()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +23,14 @@ class leagesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func youTupe(_ sender: Any) {
+        let urlstr = "https://\(link)"
+        guard let url = URL(string: urlstr)else{
+            let youTupeUrl = "https://www.youtube.com/results?search_query=\(leageStr.replacingOccurrences(of: " ", with: ""))"
+            UIApplication.shared.open(URL(string: youTupeUrl)!, options: [:], completionHandler: nil)
+           return
+        }
+        UIApplication.shared.open( url, options: [:], completionHandler: nil)
+    }
+    
 }

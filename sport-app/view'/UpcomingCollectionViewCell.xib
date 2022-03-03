@@ -19,6 +19,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.ellipsis.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="znT-IH-WeL">
                         <rect key="frame" x="0.0" y="0.0" width="258" height="125.5"/>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="258" id="27v-3d-vu9"/>
+                            <constraint firstAttribute="height" constant="127" id="Agt-60-367"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>

@@ -49,7 +49,9 @@ class LeagusTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagesCell", for: indexPath)as!leagesTableViewCell
+        cell.leageStr=leages[indexPath.row].strLeague
         cell.leageName.text=leages[indexPath.row].strLeague
+        cell.link=leages[indexPath.row].strYoutube
        // print(leages[indexPath.row].strLeague)
         cell.leagesBadge.kf.setImage(with: URL(string: leages[indexPath.row].strBadge))
      //  print(leages[indexPath.row].strBadge)
@@ -62,6 +64,8 @@ class LeagusTableViewController: UITableViewController {
         let view = storyboard?.instantiateViewController(identifier: "LeageDetail") as! LeagesDetailsViewController
         view.leageName = leages[indexPath.row].strLeague
         view.leageID = leages[indexPath.row].idLeague
+        view.youtuypLink = leages[indexPath.row].strYoutube
+        view.leageImage = leages[indexPath.row].strBadge
         self.present(view, animated: true, completion: nil)
     }
     

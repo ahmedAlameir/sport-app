@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7643FA9927D0BEB100E58441 /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7643FA9827D0BEB100E58441 /* FavTableViewCell.swift */; };
 		76463D2527CEA69E0048B4AB /* leagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76463D2427CEA69E0048B4AB /* leagesTableViewCell.swift */; };
 		7654B5A527CECA7A00EF1E8F /* UpComing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7654B5A427CECA7A00EF1E8F /* UpComing.swift */; };
 		766A309227CFF2C8007EC632 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766A309127CFF2C7007EC632 /* Teams.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2B5F45E6FD879533A9E7B468 /* Pods-sport-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sport-app.debug.xcconfig"; path = "Target Support Files/Pods-sport-app/Pods-sport-app.debug.xcconfig"; sourceTree = "<group>"; };
+		7643FA9827D0BEB100E58441 /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		76463D2427CEA69E0048B4AB /* leagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leagesTableViewCell.swift; sourceTree = "<group>"; };
 		7654B5A427CECA7A00EF1E8F /* UpComing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComing.swift; sourceTree = "<group>"; };
 		766A309127CFF2C7007EC632 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				766D35CF27CFA4E2001711C1 /* UpcomingCollectionViewCell.xib */,
 				7675A88F27CFDE47003D90ED /* LatestCollectionViewCell.swift */,
 				7675A89027CFDE47003D90ED /* LatestCollectionViewCell.xib */,
+				7643FA9827D0BEB100E58441 /* FavTableViewCell.swift */,
 			);
 			path = "view'";
 			sourceTree = "<group>";
@@ -149,8 +152,8 @@
 			children = (
 				7692A27727CE6E0F006F6D30 /* SportsCollectionViewController.swift */,
 				7692A27927CE6E47006F6D30 /* LeagusTableViewController.swift */,
-				7692A27D27CE6E7D006F6D30 /* LeagesDetailsViewController.swift */,
 				7692A27B27CE6E58006F6D30 /* FavTableViewController.swift */,
+				7692A27D27CE6E7D006F6D30 /* LeagesDetailsViewController.swift */,
 				766A309327D00E3F007EC632 /* TeamDeitailViewController.swift */,
 			);
 			path = controler;
@@ -295,6 +298,7 @@
 				7692A27C27CE6E58006F6D30 /* FavTableViewController.swift in Sources */,
 				7692A26927CE6B88006F6D30 /* sport_app.xcdatamodeld in Sources */,
 				7692A28027CE6EF4006F6D30 /* SportsCollectionViewCell.swift in Sources */,
+				7643FA9927D0BEB100E58441 /* FavTableViewCell.swift in Sources */,
 				766A309427D00E3F007EC632 /* TeamDeitailViewController.swift in Sources */,
 				7692A26127CE6B88006F6D30 /* SceneDelegate.swift in Sources */,
 				766D35D027CFA4E2001711C1 /* UpcomingCollectionViewCell.swift in Sources */,
